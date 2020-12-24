@@ -4,7 +4,7 @@
 // Engineer: 			Ufuk Karaca
 // 
 // Create Date:		
-// Design Name: 	32 bit fixed point bolme modulu
+// Design Name: 	32 bit fixed point toplama modulu.
 // Module Name:		toplama.v
 //////////////////////////////////////////////////////////////////////////////////
  

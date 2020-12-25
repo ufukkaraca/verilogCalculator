@@ -95,6 +95,13 @@ module anaModul
 	   
 	   end
     end
+
+    always@(posedge rst)begin
+        son_sonuc=0;
+        son_tasma=0;
+        son_gecerli=0;
+        son_hazir=1'b1;
+    end
 	
 	assign sonuc[63:0] = son_sonuc[63:0];
 	assign tasma = son_tasma;

@@ -43,7 +43,7 @@ module anaModul
 	bolme bolme1(.bolunen(temp_sayi1),.bolen(temp_sayi2),.clk(clk),.sonuc(temp_sonuc[3]),.hazir( temp_hazir[3]),.gecerli(temp_gecerli[3]),.tasma(temp_tasma[3]));
 	karekok karekok1(.sayi1(temp_sayi1),.clk(clk),.sonuc(temp_sonuc[4]),.hazir( temp_hazir[4]),.gecerli(temp_gecerli[4]),.tasma(temp_tasma[4]));
 	tanjant tanjant1(.sayi1(temp_sayi1),.clk(clk),.sonuc(temp_sonuc[5]),.hazir( temp_hazir[5]),.gecerli(temp_gecerli[5]),.tasma(temp_tasma[5]));
-	kotanjant kotanjant1(.sayi1(temp_sayi1),.clk(clk),.sonuc(temp_sonuc[6]),.hazir( temp_hazir[6]),.gecerli(temp_gecerli[6]),.tasma(temp_tasma[6]));
+	kotanjant kotanjant1(.radyan(temp_sayi1),.clk(clk),.sonuc(temp_sonuc[6]),.hazir( temp_hazir[6]),.gecerli(temp_gecerli[6]),.tasma(temp_tasma[6]));
     
     initial begin
         ana_hazir = 1'b1;

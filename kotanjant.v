@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module kotanjant1(
+module kotanjant(
     input [31:0] radyan,
     input clk,
     output hazir,

@@ -109,7 +109,7 @@ module cikarma
     assign sonuc[63:0] = {15'b0, temp_carry, temp_sonuc, 16'b0};
     assign hazir = temp_hazir;
     assign gecerli = temp_gecerli;
-    assign tasma = 1'b0;                    //  Sonuc alanimiz 64b. Iki 32b toplami asla 64b'den buyuk olamaz.
+    assign tasma = 1'b0;                    //  Sonuc alanimiz 64b. Iki 32b cikarma asla 64b'den buyuk olamaz.
 
 endmodule
     

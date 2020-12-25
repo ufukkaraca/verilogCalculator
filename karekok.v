@@ -38,7 +38,6 @@ module karekok
     wire [63:0] sonuc_wire; 
     integer i;
 
-    //initialize all the variables.
 
     bolme b1(.bolunen({8'b0, temp, 8'b0}), .bolen({7'b0, 9'b100000000, 16'b0}), .clk(clk), .gecerli(), .hazir(), .sonuc(sonuc_wire));
 
@@ -46,19 +45,19 @@ module karekok
     temp_sayi = sayi;
     temp_sonuc = 0;
     i = 0;
-    sol = 0;   //input to adder/sub
-    sag = 0;  //input to adder/sub
-    hatirlat = 0;  //remainder
+    sol = 0;   //hatirlatici icin toplama ve cikartmaya eklenecek olanlar
+    sag = 0;  
+    hatirlat = 0;  //hatirlatici
 
     //16 kez tekrar et
 
         for(i=0;i<16;i=i+1) begin 
             sag = {temp_sonuc,hatirlat[17],1'b1};
             sol = {hatirlat[15:0],temp_sayi[31:30]};
-            temp_sayi = {temp_sayi[29:0],2'b00};    //2 bit sola kaydýr
+            temp_sayi = {temp_sayi[29:0],2'b00};    //2 bit sola kaydir
             if (hatirlat[17] == 1) //hatirlat negatifse topla
                 hatirlat = sol + sag;
-            else    //hatirlat pozitifken çýkart
+            else    //hatirlat pozitifken cikart
                 hatirlat = sol - sag;
 
             temp_sonuc = {temp_sonuc[14:0],!hatirlat[17]};

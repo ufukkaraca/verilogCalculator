@@ -20,26 +20,38 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module carpma(
-    input clk, rst, basla,
+    input clk, rst,
     input [31:0] sayi1, 
     input [31:0] sayi2,
+    output reg hazir=0,
+    output reg gecerli=0, tasma=0, 
     output reg [63:0] sonuc=0
     );
     
-    reg [5:0] i;
+    reg [63:0] sonuc_temp=0;
+    integer i;
+    reg basla=1;
     
     always @(posedge clk) begin
     if(basla)begin
-        sonuc[31:0] = sayi2;
+        sonuc_temp=0;
+        sonuc_temp[31:0] = sayi2;
+        
         for(i=1; i<=32; i=i+1) begin
-                if (sonuc[0] == 1) begin
-                    sonuc = {sayi1, 32'b0} + sonuc;  //toplama
-                    sonuc = sonuc >> 1;
+        hazir=0; 
+                if (sonuc_temp[0] == 1) begin
+                    sonuc_temp = {sayi1, 32'b0} + sonuc_temp;  //toplama
+                    sonuc_temp = sonuc_temp >> 1;
                 end
                 else begin
-                    sonuc = sonuc >> 1;
+                    sonuc_temp = sonuc_temp >> 1;
                 end
-         end  
+         if(i==32)
+            sonuc= sonuc_temp;
+            hazir=1;      
+         end
+            gecerli=1;
+            tasma=0;
      end
      
      if (rst)begin

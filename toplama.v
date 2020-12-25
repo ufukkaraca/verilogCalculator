@@ -50,9 +50,9 @@ module toplama
 	       temp_carry <= 1'b0;
 	   end
 	   
-	   else if (!temp_hazir) begin
-	   
-	       i <= i+1;
+	   else begin
+	       if (i<=6'd32)
+	           i <= i+1;
 	       
 	       case({carry_out[i-1], temp_sayi1[i-1], temp_sayi2[i-1]})
 	           3'b000: begin
@@ -81,9 +81,10 @@ module toplama
 	           end
 	       endcase
 	       
-	       if( i>32 ) begin
+	       if( i>6'd32 ) begin
 	           temp_hazir <= 1'b1;
 	           temp_gecerli <= 1'b1;
+	           i=0;
 	           if ( carry_out[32] )
 	               temp_carry = 1'b1;	       
 	       end
